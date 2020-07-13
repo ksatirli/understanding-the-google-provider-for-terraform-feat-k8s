@@ -43,7 +43,7 @@ Before `plan` and `apply`, always clean up your code:
 * use [terraform validate](https://www.terraform.io/docs/commands/validate.html) to validate the configuration syntax and internal consistency
 ## Author Information
 
-This repository is maintained by [Kerim Satirli](https://github.com/ksatirli).
+This repository is maintained by [Kerim Satirli](https://github.com/ksatirli) and [Taylor Dolezal](https://github.com/onlydole).
 
 ## License
 
