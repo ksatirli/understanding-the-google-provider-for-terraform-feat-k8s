@@ -7,6 +7,9 @@
 - [Understanding the Google Provider for Terraform (feat. K8s)](#understanding-the-google-provider-for-terraform-feat-k8s)
   - [Table of Contents](#table-of-contents)
   - [Important Links](#important-links)
+  - [Reading material](#reading-material)
+    - [Google Provider for Terraform](#google-provider-for-terraform)
+    - [Code Quality](#code-quality)
   - [Author Information](#author-information)
   - [License](#license)
 
@@ -15,6 +18,29 @@
 * Slides: [speakerdeck.com/ksatirli/understanding-the-google-provider-for-terraform-feat-k8s](https://speakerdeck.com/ksatirli/understanding-the-google-provider-for-terraform-feat-k8s)
 * Code: [github.com/ksatirli/understanding-the-google-provider-for-terraform-feat-k8s](https://github.com/ksatirli/understanding-the-google-provider-for-terraform-feat-k8s)
 
+## Reading material
+
+This section is a collection of links that will help you make the most of today's session.
+
+## Terraform Basics
+
+* CLI commands [terraform.io/docs/commands/index.html](https://www.terraform.io/docs/commands/index.html)
+* variables and type constraints: [terraform.io/docs/configuration/variables.html](https://www.terraform.io/docs/configuration/variables.html#type-constraints)
+* variable definition files: [terraform.io/docs/configuration/variables.html](https://www.terraform.io/docs/configuration/variables.html#variable-definitions-tfvars-files)
+* information about Terraform State: [terraform.io/docs/state/index.html](https://www.terraform.io/docs/state/index.html)
+
+### Google Provider for Terraform
+
+* ChangeLog on [GitHub](https://github.com/terraform-providers/terraform-provider-google/blob/master/CHANGELOG.md)
+* documentation:
+  * for the provider can be found on [terraform.io/docs/providers/google](https://www.terraform.io/docs/providers/google/index.html)
+
+### Code Quality
+
+Before `plan` and `apply`, always clean up your code:
+
+* use [terraform fmt](https://www.terraform.io/docs/commands/fmt.html) to rewrite Terraform configuration files to a canonical format and style.
+* use [terraform validate](https://www.terraform.io/docs/commands/validate.html) to validate the configuration syntax and internal consistency
 ## Author Information
 
 This repository is maintained by [Kerim Satirli](https://github.com/ksatirli).
