@@ -1,10 +1,15 @@
 provider "google" {
-  # credentials are inferred from the environment through `gcloud auth login`
+  # credentials are inferred from the environment through `gcloud auth application-default login`
   # credentials = file("google_cloud_credentials.json")
 
   # optional, may also be configured via `gcloud config set project <project ID>`
-  project     = "hc-da-test"
+  project = var.project_id
 
   # see https://cloud.google.com/compute/docs/regions-zones for more information
-  region      = "us-west2" # Los Angeles, CA, USA
+  region = var.project_region
+}
+
+provider "google-beta" {
+  project = var.project_id
+  region  = var.project_region
 }
