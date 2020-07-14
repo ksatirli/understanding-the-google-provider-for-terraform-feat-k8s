@@ -10,6 +10,7 @@
   - [Reading material](#reading-material)
     - [Google Provider for Terraform](#google-provider-for-terraform)
     - [Code Quality](#code-quality)
+    - [Google Cloud Platform Modules](#google-cloud-platform-modules)
   - [Author Information](#author-information)
   - [License](#license)
 
@@ -35,12 +36,22 @@ This section is a collection of links that will help you make the most of today'
 * documentation:
   * for the provider can be found on [terraform.io/docs/providers/google](https://www.terraform.io/docs/providers/google/index.html)
 
+#### Google Cloud Platform Modules
+
+We used the following modules:
+
+* `network` by Google: [registry.terraform.io/modules/terraform-google-modules/network/google](https://registry.terraform.io/modules/terraform-google-modules/network/google/2.4.0)
+* `kubernetes-engine` by Google: [registry.terraform.io/modules/terraform-google-modules/kubernetes-engine/google](https://registry.terraform.io/modules/terraform-google-modules/kubernetes-engine/google/10.0.0)
+
+These modules are defined in [network.tf](https://github.com/ksatirli/understanding-the-google-provider-for-terraform-feat-k8s/blob/master/network.tf) and [cluster.tf](https://github.com/ksatirli/understanding-the-google-provider-for-terraform-feat-k8s/blob/master/cluster.tf)
+
 ### Code Quality
 
 Before `plan` and `apply`, always clean up your code:
 
 * use [terraform fmt](https://www.terraform.io/docs/commands/fmt.html) to rewrite Terraform configuration files to a canonical format and style.
 * use [terraform validate](https://www.terraform.io/docs/commands/validate.html) to validate the configuration syntax and internal consistency
+
 ## Author Information
 
 This repository is maintained by [Kerim Satirli](https://github.com/ksatirli) and [Taylor Dolezal](https://github.com/onlydole).
