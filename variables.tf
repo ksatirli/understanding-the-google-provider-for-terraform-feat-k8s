@@ -21,3 +21,8 @@ variable "project_prefix" {
   description = "Project Prefix"
   default     = "hug-ist-demo"
 }
+# get your public IP address by querying ICHI
+data "http" "icanhazip" {
+  # this value will be available in data.http.icanhazip.body
+  url = "https://icanhazip.com/"
+}
