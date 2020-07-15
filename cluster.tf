@@ -18,7 +18,7 @@ module "hug_ist_gke_cluster" {
   initial_node_count         = 1
   ip_range_pods              = module.hug_ist_gke_network.subnets_secondary_ranges[0].*.range_name[0]
   ip_range_services          = module.hug_ist_gke_network.subnets_secondary_ranges[0].*.range_name[1]
-  kubernetes_version         = "1.16.10-gke.8"
+  kubernetes_version         = "1.16.11-gke.5"
 
   master_authorized_networks = [
     {
