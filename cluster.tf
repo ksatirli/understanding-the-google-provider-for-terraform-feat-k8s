@@ -14,6 +14,7 @@ module "hug_ist_gke_cluster" {
   gcloud_skip_download       = false
   gcloud_upgrade             = true
   horizontal_pod_autoscaling = true
+  initial_node_count         = 1
   ip_range_services          = module.hug_ist_gke_network.subnets_secondary_ranges[0].*.range_name[1]
   kubernetes_version         = "1.16.10-gke.8"
 
