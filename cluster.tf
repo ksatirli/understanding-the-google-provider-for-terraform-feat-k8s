@@ -55,21 +55,6 @@ module "hug_ist_gke_cluster" {
     default = var.node_pools_oauth_scopes
   }
 
-  node_pools_labels = {
-    all     = {}
-    default = {}
-  }
-
-  node_pools_metadata = {
-    all     = {}
-    default = {}
-  }
-
-  node_pools_tags = {
-    all     = []
-    default = []
-  }
-
   project_id               = var.project_id
   region                   = var.project_region
   regional                 = true
