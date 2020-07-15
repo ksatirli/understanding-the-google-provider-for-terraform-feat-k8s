@@ -7,14 +7,21 @@ module "hug_ist_gke_network" {
 
   subnets = [
     {
-      subnet_name   = "${var.project_prefix}-subnet-01"
-      subnet_ip     = "10.10.10.0/24"
+      subnet_name   = local.subnet_name
+      subnet_ip     = "10.0.0.0/24"
       subnet_region = var.project_region
-      }, {
-      subnet_name           = "${var.project_prefix}-subnet-02"
-      subnet_ip             = "10.10.20.0/24"
-      subnet_region         = var.project_region
-      subnet_private_access = true
-    }
+    },
   ]
+
+  secondary_ranges = {
+    "${local.subnet_name}" = [
+      {
+        range_name    = "${var.project_prefix}-ips-pods-${random_string.suffix.result}"
+        ip_cidr_range = "10.1.0.0/16"
+      },
+      {
+        range_name    = "${var.project_prefix}-ips-services-${random_string.suffix.result}"
+        ip_cidr_range = "10.2.0.0/20"
+      },
+  ] }
 }
