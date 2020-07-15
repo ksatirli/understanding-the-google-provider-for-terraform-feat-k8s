@@ -3,6 +3,7 @@ module "hug_ist_gke_cluster" {
   version = "10.0.0"
 
   add_cluster_firewall_rules        = true
+  create_service_account            = true
   description                       = "GKE Demonstration for HUG Istanbul"
   disable_legacy_metadata_endpoints = true
   horizontal_pod_autoscaling        = true
