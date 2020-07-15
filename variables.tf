@@ -36,7 +36,7 @@ variable "node_pools_oauth_scopes" {
 }
 
 locals {
-  subnet_name = "${var.project_prefix}-subnet-${random_string.suffix.result}"
+  subnet_name = "${var.project_prefix}-subnet"
 }
 
 # get your public IP address by querying ICHI

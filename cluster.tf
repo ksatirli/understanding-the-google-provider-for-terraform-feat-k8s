@@ -30,7 +30,7 @@ module "hug_ist_gke_cluster" {
     }
   ]
 
-  name           = "${var.project_prefix}-cluster-${var.project_region}-${random_string.suffix.result}"
+  name           = "${var.project_prefix}-cluster-${var.project_region}"
   network        = module.hug_ist_gke_network.network_name
   network_policy = true
 
