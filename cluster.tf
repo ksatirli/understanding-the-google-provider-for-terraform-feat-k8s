@@ -6,20 +6,20 @@ module "hug_ist_gke_cluster" {
   create_service_account            = true
   description                       = "GKE Demonstration for HUG Istanbul"
   disable_legacy_metadata_endpoints = true
-  horizontal_pod_autoscaling        = true
-  ip_range_pods                     = module.hug_ist_gke_network.subnets_secondary_ranges[0].*.range_name[0]
-  ip_range_services                 = module.hug_ist_gke_network.subnets_secondary_ranges[0].*.range_name[1]
 
   firewall_inbound_ports = [
     "8080"
   ]
 
+  horizontal_pod_autoscaling = true
+  ip_range_services          = module.hug_ist_gke_network.subnets_secondary_ranges[0].*.range_name[1]
+  kubernetes_version         = "1.16.10-gke.8"
 
   master_authorized_networks = [
     {
       cidr_block   = module.hug_ist_gke_network.subnets_ips[0]
       display_name = "VPC"
-    }, {
+      }, {
       cidr_block   = "${chomp(data.http.icanhazip.body)}/32"
       display_name = "Operator"
     }
