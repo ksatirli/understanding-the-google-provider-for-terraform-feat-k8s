@@ -44,7 +44,7 @@ module "hug_ist_gke_cluster" {
       disk_type          = "pd-ssd"
       image_type         = "COS"
       auto_repair        = true
-      auto_upgrade       = false
+      auto_upgrade       = true
       preemptible        = false
       initial_node_count = 1
     }
