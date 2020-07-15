@@ -1,4 +1,4 @@
-module "hug_ist_gke_cluster" {
+module "gke_cluster" {
   source  = "terraform-google-modules/kubernetes-engine/google"
   version = "10.0.0"
 
@@ -16,13 +16,13 @@ module "hug_ist_gke_cluster" {
   grant_registry_access      = true
   horizontal_pod_autoscaling = true
   initial_node_count         = 1
-  ip_range_pods              = module.hug_ist_gke_network.subnets_secondary_ranges[0].*.range_name[0]
-  ip_range_services          = module.hug_ist_gke_network.subnets_secondary_ranges[0].*.range_name[1]
+  ip_range_pods              = module.gke_network.subnets_secondary_ranges[0].*.range_name[0]
+  ip_range_services          = module.gke_network.subnets_secondary_ranges[0].*.range_name[1]
   kubernetes_version         = "1.16.11-gke.5"
 
   master_authorized_networks = [
     {
-      cidr_block   = module.hug_ist_gke_network.subnets_ips[0]
+      cidr_block   = module.gke_network.subnets_ips[0]
       display_name = "VPC"
       }, {
       cidr_block   = "${chomp(data.http.icanhazip.body)}/32"
@@ -31,7 +31,7 @@ module "hug_ist_gke_cluster" {
   ]
 
   name           = "${var.project_prefix}-cluster-${var.project_region}"
-  network        = module.hug_ist_gke_network.network_name
+  network        = module.gke_network.network_name
   network_policy = true
 
   node_pools = [
@@ -60,7 +60,7 @@ module "hug_ist_gke_cluster" {
   regional                 = true
   remove_default_node_pool = true
   service_account          = "create"
-  subnetwork               = module.hug_ist_gke_network.subnets_names[0]
+  subnetwork               = module.gke_network.subnets_names[0]
 }
 
 data "google_client_config" "default" {}

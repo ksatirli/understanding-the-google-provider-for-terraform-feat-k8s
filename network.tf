@@ -1,4 +1,4 @@
-module "hug_ist_gke_network" {
+module "gke_network" {
   source  = "terraform-google-modules/network/google"
   version = "2.4.0"
 
