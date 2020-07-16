@@ -10,12 +10,6 @@ variable "project_region" {
   default     = "us-west2" # Los Angeles, CA, USA
 }
 
-resource "random_string" "suffix" {
-  length  = 3
-  special = false
-  upper   = false
-}
-
 variable "project_prefix" {
   type        = string
   description = "Project Prefix"
