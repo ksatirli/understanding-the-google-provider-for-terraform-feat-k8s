@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: beacon
+  labels:
+    app: beacon
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: beacon
+  template:
+    metadata:
+      labels:
+        app: beacon
+    spec:
+      containers:
+        - name: beacon
+          image: onlydole/beacon:1.19.1

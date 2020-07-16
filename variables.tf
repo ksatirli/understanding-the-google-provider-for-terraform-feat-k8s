@@ -10,12 +10,6 @@ variable "project_region" {
   default     = "us-west2" # Los Angeles, CA, USA
 }
 
-resource "random_string" "suffix" {
-  length  = 3
-  special = false
-  upper   = false
-}
-
 variable "project_prefix" {
   type        = string
   description = "Project Prefix"
@@ -36,7 +30,7 @@ variable "node_pools_oauth_scopes" {
 }
 
 locals {
-  subnet_name = "${var.project_prefix}-subnet-${random_string.suffix.result}"
+  subnet_name = "${var.project_prefix}-subnet"
 }
 
 # get your public IP address by querying ICHI

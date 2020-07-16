@@ -1,9 +1,9 @@
-module "hug_ist_gke_network" {
+module "gke_network" {
   source  = "terraform-google-modules/network/google"
   version = "2.4.0"
 
   project_id   = var.project_id
-  network_name = "${var.project_prefix}-${random_string.suffix.result}"
+  network_name = "${var.project_prefix}"
 
   subnets = [
     {
@@ -16,11 +16,11 @@ module "hug_ist_gke_network" {
   secondary_ranges = {
     "${local.subnet_name}" = [
       {
-        range_name    = "${var.project_prefix}-ips-pods-${random_string.suffix.result}"
+        range_name    = "${var.project_prefix}-ips-pods"
         ip_cidr_range = "10.1.0.0/16"
       },
       {
-        range_name    = "${var.project_prefix}-ips-services-${random_string.suffix.result}"
+        range_name    = "${var.project_prefix}-ips-services"
         ip_cidr_range = "10.2.0.0/20"
       },
   ] }
